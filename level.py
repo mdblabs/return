@@ -1,5 +1,9 @@
+import pygame
+
+pygame.init()
 
 class Screen:
+    # TODO: objects must be part of state or player
     objects = {}
     states = {}
     transitions = {}
@@ -33,7 +37,6 @@ class Screen:
             if actualState in st and st[1]==1:
                 st[1]=0
 
-
     def getScreenObjects(self):
         return self.objects
 
@@ -42,6 +45,63 @@ class Screen:
 
     def setInScreen(self,state):
         self.inScreen = state
+    pass
 
+class State:
+    """
+    State class.
+    Info: Class holder for state interaction and managing.
+    Can play one animation, one sound, and take care of objects, present on the scene.
+    Interfaces:
+    """
+    def __init__(self,objectsList,animation,sound):
+        self.objects = objectsList
+        self.animation = animation
+        self.sound = sound
+        self. active = False
+    pass
+
+    def playAnimation(self):
+        """
+        Plays animation, depending on activation
+        :return:
+        """
+
+    def playSound(self):
+        """
+        Plays a state-related sound, in a loop.
+        :return:
+        """
+
+    def activate(self):
+        """
+        Activates state.
+        :return:
+        """
+        self.active = True
+
+    def deactivate(self):
+        """
+        Deactivates state.
+        :return:
+        """
+        self.active = False
+
+    def getState(self):
+        """
+        Returns state status.
+        :return:
+        """
+        return self.active
+
+
+
+class Animation:
+    """
+    Animation class.
+    Info: Class that implements visual animations
+    Interfaces:
+    """
+    pass
 
 

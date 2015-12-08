@@ -4,6 +4,9 @@ pygame.init()
 class Console:
     fontHeight = 48
     consoleFont = pygame.font.SysFont("monospace", fontHeight)
+
+    # TODO: modify console size to a smaller rectangle, for drawing efficiency.
+
     consoleScreen = pygame.display.set_mode((1024,768))
     promt = '>'
     letter = ''
@@ -27,10 +30,14 @@ class Console:
                         self.line = self.line[:-1]
                     self.consoleScreen.fill((0,0,0))
                 elif event.key == pygame.K_ESCAPE:
-                    #TODO: Breck gameplay
+
+                    # TODO: Break gameplay
+
                     pass
                 elif event.key == pygame.K_TAB:
-                    #TODO: Nothing?
+
+                    # TODO: Nothing?
+
                     pass
                 else:
                     try:
